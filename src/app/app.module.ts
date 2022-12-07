@@ -1,3 +1,4 @@
+import { ExampleDataBindingComponent } from './data-binding/example-data-binding/example-data-binding.component';
 import { ExamplePipeComponent } from './pipes/example-pipe/example-pipe.component';
 import { PipesModule } from './pipes/pipes.module';
 import { DirectivaComponent } from './directivas/directiva/directiva.component';
@@ -9,17 +10,21 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DataBindingModule } from './data-binding/data-binding.module';
+import { DiComponent } from './di/di.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DiComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SecondModule,
     DirectivasModule,
-    PipesModule
+    PipesModule,
+    DataBindingModule
   ],
   //No es necesario añadir esta característica en @ngModule, porque está Obsoleta
   entryComponents:[AppComponent],
@@ -34,8 +39,8 @@ export class AppModule {
   }
   //Si se elimina el tag <app-root> del fichero Index.htm, entonces no saldrá
   ngDoBootstrap(appRef: ApplicationRef) {
-    if (this.browser_module.getElementsByTagName('app-example-pipe').length > 0) {
-      appRef.bootstrap(ExamplePipeComponent);
+    if (this.browser_module.getElementsByTagName('app-root').length > 0) {
+      appRef.bootstrap(AppComponent);
     }
   }
-}
+} 

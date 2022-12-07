@@ -1,0 +1,8 @@
+<h1>Padre</h1>
+
+<p>Respuesta del hijo: {{messageFromChild}}</p>
+
+<app-child-data-binding (responseFromChild)="responseFromChild($event)" [messageFromFather]="'Yo soy tu padre'"></app-child-data-binding>
+
+<h2>Two Ways Binding</h2>
+<input type="text" [(ngModel)]="message">{{message}}
