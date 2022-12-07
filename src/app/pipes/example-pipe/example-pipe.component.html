@@ -1,0 +1,42 @@
+<h2>USO DE PIPE PARA TÍTULOS</h2>
+<p>{{'texto tipo titlecase!' | titlecase | docorator:'---'}}</p>
+<p>{{'texto en mayusculas' | uppercase }}</p>
+<p> {{'TEXTO EN MINUSCULA' | lowercase }}</p>
+<p>{{'Porción de texto' | slice:0:7 }}</p>
+
+<h2>USO DE PIPE PARA FECHAS</h2>
+<p>
+    Fecha en tipo medium: {{fecha | date:'medium'}}
+</p>
+<p>
+    fecha en tipo: {{fecha | date:'short'}}
+</p>
+<p>
+    Fecha en tipo YY-MM-DD: {{fecha | date: 'dd-MM-yyyy'}}
+</p>
+<h2>USO DE PIPE PARA NÚMEROS</h2>
+<p>
+    Formato de número con dos dígitos: {{numero | number:'1.0-2'}}
+</p>
+
+<p>
+    Formato de moneda: {{numero | currency:'USD':true}}
+</p>
+<p>
+    Formato de porcentaje: {{numero | percent }}
+</p>
+
+<h2>USO DE i18nPlural</h2>
+<p>
+    {{mensajes.length | i18nPlural:mensajesMapping |uppercase}}
+</p>
+
+<h2>USO DE i18nSelect</h2>
+<p>
+    {{usuario.sexo | i18nSelect:map}} {{usuario.nombre +' '+ usuario.apellido }}
+</p>
+
+<h2>Mostrar el JSON de datos</h2>
+<p>
+    {{usuario | json}}
+</p>

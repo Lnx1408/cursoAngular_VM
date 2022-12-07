@@ -1,7 +1,22 @@
 <p *ngIf="show then ok else error">directiva works!</p>
 
-<ng-template #ok>Verídica la vaina
+<ng-template #ok>Show es {{show}}
+    <!--Uso de directivas (ngFor, ngStyle, ngClass, ngSwitch)-->
+    <ul>
+        <li *ngFor="let color of colors; let i=index; let l=last; let o=odd, let e=even;" 
+
+            [ngStyle]="{color: color}"
+            
+            [ngClass]="{'par':e && !l, 'impar': o && !l, 'ultimo': l}"
+            
+            [ngSwitch]="color">
+            <span *ngSwitchCase="'blue'">Soy el color azul</span>
+            <span *ngSwitchDefault>No soy el color azul</span>
+            {{i}} - {{color}}
+        </li>
+    </ul>
 </ng-template>
 
-<ng-template #error>Cha madre oe Byron
+<ng-template #error>
+    Show es {{show}}
 </ng-template>
