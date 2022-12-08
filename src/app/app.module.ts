@@ -1,3 +1,4 @@
+import { Routes, RouterModule } from '@angular/router';
 import { ExampleDataBindingComponent } from './data-binding/example-data-binding/example-data-binding.component';
 import { ExamplePipeComponent } from './pipes/example-pipe/example-pipe.component';
 import { PipesModule } from './pipes/pipes.module';
@@ -13,6 +14,12 @@ import { AppComponent } from './app.component';
 import { DataBindingModule } from './data-binding/data-binding.module';
 import { DiComponent } from './di/di.component';
 
+//Se agrega para poder trabajar con rutas
+const ROUTES: Routes = [
+  {path:'', redirectTo: 'directivas', pathMatch: 'full'}
+  
+  
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,9 +29,11 @@ import { DiComponent } from './di/di.component';
     BrowserModule,
     AppRoutingModule,
     SecondModule,
+    //¿Cómo se hace lzy load?
     DirectivasModule,
     PipesModule,
-    DataBindingModule
+    DataBindingModule,
+    RouterModule.forRoot(ROUTES)
   ],
   //No es necesario añadir esta característica en @ngModule, porque está Obsoleta
   entryComponents:[AppComponent],

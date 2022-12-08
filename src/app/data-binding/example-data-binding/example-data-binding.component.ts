@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-example-data-binding',
@@ -10,9 +11,11 @@ export class ExampleDataBindingComponent implements OnInit {
   messageFromChild:string="";
   
   message:string="";
+  param:string="";
 
-  constructor(){}
+  constructor(private activatedRoute:ActivatedRoute){}
   ngOnInit(){
+    this.param=this.activatedRoute.snapshot.params['param'];
   }
   responseFromChild(event: any) {
     this.messageFromChild = event;
